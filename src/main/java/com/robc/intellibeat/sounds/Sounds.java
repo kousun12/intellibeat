@@ -45,22 +45,22 @@ public class Sounds {
 	}
 
 	private Sounds(Function<Config, Sound> load) {
-		oneUp = load.fun(new Config("smb_1-up.au"));
-		oneDown = load.fun(new Config("smb_pipe.au"));
-		coin = load.fun(new Config("smb_coin.au"));
-		bowserfalls = load.fun(new Config("smb_bowserfalls.au"));
-		breakblock = load.fun(new Config("smb_breakblock.au"));
-		fireball = load.fun(new Config("smb_fireball.au"));
-		fireworks = load.fun(new Config("smb_fireworks.au"));
-		gameover = load.fun(new Config("smb_gameover.au", true));
-		jumpSmall = load.fun(new Config("smb_jump-small.au"));
-		jumpSuper = load.fun(new Config("smb_jump-super.au"));
-		kick = load.fun(new Config("smb_kick.au"));
-		stomp = load.fun(new Config("smb_stomp.au"));
-		powerup = load.fun(new Config("smb_powerup.au"));
-		powerupAppears = load.fun(new Config("smb_powerup_appears.au"));
-		marioSong = load.fun(new Config("mario_08.au", true));
-		zeldaSong = load.fun(new Config("zelda_04.au", true));
+		oneUp = load.fun(new Config("/smb_1-up.au"));
+		oneDown = load.fun(new Config("/smb_pipe.au"));
+		coin = load.fun(new Config("/smb_coin.au"));
+		bowserfalls = load.fun(new Config("/smb_bowserfalls.au"));
+		breakblock = load.fun(new Config("/smb_breakblock.au"));
+		fireball = load.fun(new Config("/smb_fireball.au"));
+		fireworks = load.fun(new Config("/smb_fireworks.au"));
+		gameover = load.fun(new Config("/smb_gameover.au", true));
+		jumpSmall = load.fun(new Config("/smb_jump-small.au"));
+		jumpSuper = load.fun(new Config("/smb_jump-super.au"));
+		kick = load.fun(new Config("/smb_kick.au"));
+		stomp = load.fun(new Config("/smb_stomp.au"));
+		powerup = load.fun(new Config("/smb_powerup.au"));
+		powerupAppears = load.fun(new Config("/smb_powerup_appears.au"));
+		marioSong = load.fun(new Config("/mario_08.au", true));
+		zeldaSong = load.fun(new Config("/zelda_04.au", true));
 	}
 
 	private static byte[] loadBytes(String fileName) {

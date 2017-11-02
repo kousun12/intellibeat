@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conversion>
+  <applied-converters>
+    <converter id="android-module-to-java-module" />
+    <converter id="android-proguard-options" />
+    <converter id="android-sdk-library" />
+    <converter id="groovy-modules-to-facets" />
+    <converter id="groovy-script-run-configurations" />
+    <converter id="junit-to-android-junit-configurations" />
+  </applied-converters>
+  <project-files>
+    <file path="/Users/finshared/code/fin-core-beta/.idea/codeStyleSettings.xml" timestamp="1475222355000" />
+    <file path="/Users/finshared/code/fin-core-beta/.idea/dictionaries/finshared.xml" timestamp="1509474823000" />
+    <file path="/Users/finshared/code/fin-core-beta/.idea/eslintPlugin.xml" timestamp="1499724719000" />
+    <file path="/Users/finshared/code/fin-core-beta/.idea/fin-core-beta.iml" timestamp="1509661265000" />
+    <file path="/Users/finshared/code/fin-core-beta/.idea/inspectionProfiles/Project_Default.xml" timestamp="1502945497000" />
+    <file path="/Users/finshared/code/fin-core-beta/.idea/jsLibraryMappings.xml" timestamp="1502384871000" />
+    <file path="/Users/finshared/code/fin-core-beta/.idea/misc.xml" timestamp="1497390330000" />
+    <file path="/Users/finshared/code/fin-core-beta/.idea/modules.xml" timestamp="1473708327000" />
+    <file path="/Users/finshared/code/fin-core-beta/.idea/reactTemplatesPlugin.xml" timestamp="1509583138000" />
+    <file path="/Users/finshared/code/fin-core-beta/.idea/runConfigurations/Development__fin_core_beta.xml" timestamp="1473708736000" />
+    <file path="/Users/finshared/code/fin-core-beta/.idea/runConfigurations/Production__fin_core_beta.xml" timestamp="1473708736000" />
+    <file path="/Users/finshared/code/fin-core-beta/.idea/runConfigurations/spec__fin_core_beta.xml" timestamp="1473708736000" />
+    <file path="/Users/finshared/code/fin-core-beta/.idea/runConfigurations/test__fin_core_beta.xml" timestamp="1473708736000" />
+    <file path="/Users/finshared/code/fin-core-beta/.idea/vcs.xml" timestamp="1473708350000" />
+    <file path="/Users/finshared/code/fin-core-beta/.idea/workspace (copy: conflict on 2017-02-09).xml" timestamp="1486690315000" />
+    <file path="/Users/finshared/code/fin-core-beta/.idea/workspace (copy: conflict on 2017-02-22).xml" timestamp="1487803034000" />
+    <file path="/Users/finshared/code/fin-core-beta/.idea/workspace.xml" timestamp="1509662439000" />
+  </project-files>
+</conversion>
+

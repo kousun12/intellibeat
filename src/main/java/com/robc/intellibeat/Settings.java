@@ -8,7 +8,7 @@ import com.intellij.util.xmlb.XmlSerializerUtil;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("UnusedDeclaration")
-@State(name = "PluginOneConfig", storages = {@Storage(id = "main", file = "$APP_CONFIG$/plugin_one_config.xml")})
+@State(name = "IntelliBeatConfig", storages = {@Storage(id = "main", file = "$APP_CONFIG$/intellibeat_config.xml")})
 public class Settings implements PersistentStateComponent<Settings> {
 	public Boolean pluginEnabled;
 	public boolean actionSoundsEnabled = true;

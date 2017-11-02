@@ -29,12 +29,12 @@
   </extensions>
 
   <actions>
-    <group id="PluginOne.Menu" text="PluginOne Menu" popup="true">
+    <group id="IntelliBeat.Menu" text="IntelliBeat Menu" popup="true">
       <add-to-group anchor="last" group-id="ToolsMenu"/>
-      <action class="com.robc.intellibeat.ToggleActionSounds" id="com.robc.pluginone.ToggleActionSounds" text="Sounds on Actions">
+      <action class="com.robc.intellibeat.ToggleActionSounds" id="com.robc.intellibeat.ToggleActionSounds" text="Sounds on Actions">
         <keyboard-shortcut keymap="$default" first-keystroke="alt shift m"/>
       </action>
-      <action class="com.robc.intellibeat.ToggleBackgroundMusic" id="com.robc.pluginone.StartStop" text="Background Music"/>
+      <action class="com.robc.intellibeat.ToggleBackgroundMusic" id="com.robc.intellibeat.StartStop" text="Background Music"/>
     </group>
   </actions>
 

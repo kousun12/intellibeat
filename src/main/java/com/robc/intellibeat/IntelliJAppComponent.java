@@ -11,9 +11,9 @@ import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.project.ProjectManagerAdapter;
 import com.intellij.openapi.project.ProjectManagerListener;
 import com.intellij.openapi.util.SystemInfo;
-import com.robc.pluginone.listeners.*;
-import com.robc.pluginone.sounds.SilentSound;
-import com.robc.pluginone.sounds.Sounds;
+import com.robc.intellibeat.listeners.*;
+import com.robc.intellibeat.sounds.SilentSound;
+import com.robc.intellibeat.sounds.Sounds;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;

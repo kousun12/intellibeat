@@ -1,9 +1,10 @@
 package com.robc.intellibeat;
 
 
-import com.robc.pluginone.listeners.*;
-import com.robc.pluginone.sounds.Sound;
-import com.robc.pluginone.sounds.Sounds;
+
+import com.robc.intellibeat.listeners.*;
+import com.robc.intellibeat.sounds.Sound;
+import com.robc.intellibeat.sounds.Sounds;
 
 import java.util.HashMap;
 import java.util.Map;
