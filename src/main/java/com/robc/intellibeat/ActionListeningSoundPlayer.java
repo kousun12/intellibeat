@@ -25,6 +25,7 @@ public class ActionListeningSoundPlayer implements
   private Sequencer sequencer;
   private int count = 0;
   private Receiver receiver = null;
+  private int tickNum = 0;
 
 
   public ActionListeningSoundPlayer(Sounds sounds, Listener listener) {
@@ -118,15 +119,15 @@ public class ActionListeningSoundPlayer implements
     try {
       if (!sequencer.isRunning()) {
         int index = this.count % this.sounds.sequences.size();
+        System.out.println("playing");
         Sequence s = this.sounds.sequences.get(index);
         sequencer.setTickPosition(0);
         sequencer.setSequence(s);
         sequencer.start();
         this.count++;
-        System.out.println("playing");
         new Thread(() -> {
           try {
-            Thread.sleep(s.getMicrosecondLength() * 1000);
+            Thread.sleep(s.getMicrosecondLength() / 1000);
             sequencer.stop();
           } catch (Exception e) {
             System.out.println("ERROR!");
@@ -146,17 +147,16 @@ public class ActionListeningSoundPlayer implements
 //        Sequence s = this.sounds.sequences.get(index);
 //        long tickLen = s.getMicrosecondLength() / s.getTickLength();
 //        long micro = tickLen * tickNum;
-//        System.out.print(tickNum);
-//        System.out.print(tickLen);
 //        if (micro >= s.getMicrosecondLength()) {
 //          this.tickNum = 0;
 //          this.count++;
 //          index = this.count % this.sounds.sequences.size();
 //          s = this.sounds.sequences.get(index);
-//          micro = 0;
-//          sequencer.setSequence(s);
+//          sequencer.setTickPosition(0);
 //        }
-//        sequencer.setMicrosecondPosition(micro);
+//        sequencer.setSequence(s);
+//        System.out.println(s.getMicrosecondLength());
+//        System.out.println(micro);
 //        sequencer.start();
 //        this.tickNum++;
 //        System.out.println("playing");

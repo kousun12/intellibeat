@@ -2,6 +2,7 @@ package com.robc.intellibeat.sounds;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 import javax.sound.midi.*;
 
 public class MidiPlayer implements MetaEventListener {
@@ -18,7 +19,7 @@ public class MidiPlayer implements MetaEventListener {
    */
   public MidiPlayer() {
     try {
-      sequencer = MidiSystem.getSequencer();
+      sequencer = MidiSystem.getSequencer(false);
       sequencer.open();
       sequencer.addMetaEventListener(this);
     } catch (MidiUnavailableException ex) {
@@ -65,12 +66,35 @@ public class MidiPlayer implements MetaEventListener {
 
   private ArrayList<Sequence> sequences = new ArrayList<>();
   private int sequenceIndex = 0;
+  private Receiver receiver = null;
 
   /**
    * Plays a sequence, optionally looping. This method returns
    * immediately. The sequence is not played if it is invalid.
    */
   public void play(ArrayList<Sequence> sequences, boolean loop) {
+    MidiDevice device;
+    MidiDevice.Info[] infos = MidiSystem.getMidiDeviceInfo();
+    for (int i = 0; i < infos.length; i++) {
+      try {
+        if (receiver == null) {
+          device = MidiSystem.getMidiDevice(infos[i]);
+          String name = device.getDeviceInfo().toString();
+          Pattern p = Pattern.compile("FluidSynth virtual port");
+          if (p.matcher(name).find()) {
+            if (!device.isOpen()) {
+              device.open();
+              System.out.println("Setting Receiver to : " + name);
+              receiver = device.getReceiver();
+              sequencer.getTransmitter().setReceiver(device.getReceiver());
+            }
+          }
+        }
+      } catch (Exception e) {
+        System.out.println("ERROR!");
+        System.out.println(e);
+      }
+    }
     if (sequencer != null && sequences.size() > 0 && sequencer.isOpen()) {
       try {
         sequencer.setSequence(sequences.get(sequenceIndex));
@@ -91,17 +115,19 @@ public class MidiPlayer implements MetaEventListener {
    */
   public void meta(MetaMessage event) {
     if (event.getType() == END_OF_TRACK_MESSAGE) {
+      sequencer.stop();
       if (sequencer != null && sequencer.isOpen() && loop) {
         sequencer.setTickPosition(0);
         sequencer.start();
       } else if (!loop) {
         sequenceIndex = (sequenceIndex + 1) % sequences.size();
         try {
-          sequencer.setTickPosition(0);
+          System.out.println("seq");
           sequencer.setSequence(sequences.get(sequenceIndex));
+          sequencer.setTickPosition(0);
           sequencer.start();
         } catch (Exception e) {
-
+          System.out.println(e);
         }
       }
     }
