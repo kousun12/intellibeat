@@ -19,7 +19,7 @@ public class MidiPlayer implements MetaEventListener {
    */
   public MidiPlayer() {
     try {
-      sequencer = MidiSystem.getSequencer(false);
+      sequencer = MidiSystem.getSequencer();
       sequencer.open();
       sequencer.addMetaEventListener(this);
     } catch (MidiUnavailableException ex) {
@@ -75,26 +75,26 @@ public class MidiPlayer implements MetaEventListener {
   public void play(ArrayList<Sequence> sequences, boolean loop) {
     MidiDevice device;
     MidiDevice.Info[] infos = MidiSystem.getMidiDeviceInfo();
-    for (int i = 0; i < infos.length; i++) {
-      try {
-        if (receiver == null) {
-          device = MidiSystem.getMidiDevice(infos[i]);
-          String name = device.getDeviceInfo().toString();
-          Pattern p = Pattern.compile("FluidSynth virtual port");
-          if (p.matcher(name).find()) {
-            if (!device.isOpen()) {
-              device.open();
-              System.out.println("Setting Receiver to : " + name);
-              receiver = device.getReceiver();
-              sequencer.getTransmitter().setReceiver(device.getReceiver());
-            }
-          }
-        }
-      } catch (Exception e) {
-        System.out.println("ERROR!");
-        System.out.println(e);
-      }
-    }
+//    for (int i = 0; i < infos.length; i++) {
+//      try {
+//        if (receiver == null) {
+//          device = MidiSystem.getMidiDevice(infos[i]);
+//          String name = device.getDeviceInfo().toString();
+//          Pattern p = Pattern.compile("FluidSynth virtual port");
+//          if (p.matcher(name).find()) {
+//            if (!device.isOpen()) {
+//              device.open();
+//              System.out.println("Setting bg Receiver to : " + name);
+//              receiver = device.getReceiver();
+//              sequencer.getTransmitter().setReceiver(device.getReceiver());
+//            }
+//          }
+//        }
+//      } catch (Exception e) {
+//        System.out.println("ERROR!");
+//        System.out.println(e);
+//      }
+//    }
     if (sequencer != null && sequences.size() > 0 && sequencer.isOpen()) {
       try {
         sequencer.setSequence(sequences.get(sequenceIndex));
@@ -121,6 +121,7 @@ public class MidiPlayer implements MetaEventListener {
         sequencer.start();
       } else if (!loop) {
         sequenceIndex = (sequenceIndex + 1) % sequences.size();
+        System.out.println("seq i " + sequenceIndex);
         try {
           System.out.println("seq");
           sequencer.setSequence(sequences.get(sequenceIndex));

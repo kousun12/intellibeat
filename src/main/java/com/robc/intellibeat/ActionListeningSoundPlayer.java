@@ -119,11 +119,11 @@ public class ActionListeningSoundPlayer implements
     try {
       if (!sequencer.isRunning()) {
         int index = this.count % this.sounds.sequences.size();
-        System.out.println("playing");
         Sequence s = this.sounds.sequences.get(index);
         sequencer.setTickPosition(0);
         sequencer.setSequence(s);
         sequencer.start();
+        System.out.println("play " + s.getMicrosecondLength() / 1000 + " " + this.count);
         this.count++;
         new Thread(() -> {
           try {
