@@ -1,8 +1,11 @@
 package com.robc.intellibeat.sounds;
 
 import com.intellij.openapi.diagnostic.Logger;
+import com.robc.intellibeat.Settings;
 import org.jetbrains.annotations.NotNull;
 
+import javax.sound.midi.MidiSystem;
+import javax.sound.midi.Sequencer;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineEvent;
@@ -42,7 +45,7 @@ public class Sound {
 	}
 
 	public Sound playInBackground() {
-		playSoundFromStream(new ByteArrayInputStream(bytes), Clip.LOOP_CONTINUOUSLY);
+	  playBackgroundMus();
 		return this;
 	}
 
@@ -51,6 +54,16 @@ public class Sound {
 			clip.stop();
 		}
 		return this;
+	}
+
+	private void playBackgroundMus() {
+		Settings settings = Settings.getInstance();
+		Sounds s = Sounds.create(settings.actionSoundsEnabled, settings.backgroundMusicEnabled);
+		try {
+			(new MidiPlayer()).play(s.performances, false);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	/**

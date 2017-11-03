@@ -2,18 +2,31 @@
   <component name="RecentProjectsManager">
     <option name="recentPaths">
       <list>
+        <option value="$USER_HOME$/code/debug-challenge-java" />
         <option value="$USER_HOME$/code/fin-core-beta" />
       </list>
     </option>
     <option name="openPaths">
       <list>
-        <option value="$USER_HOME$/code/fin-core-beta" />
+        <option value="$USER_HOME$/code/debug-challenge-java" />
       </list>
     </option>
-    <option name="lastPath" value="$USER_HOME$/code/fin-core-beta" />
-    <option name="pid" value="17601" />
+    <option name="lastPath" value="$USER_HOME$/code/debug-challenge-java" />
+    <option name="pid" value="64103" />
     <option name="additionalInfo">
       <map>
+        <entry key="$USER_HOME$/code/debug-challenge-java">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IC-173.3531.6" />
+              <option name="productionCode" value="IC" />
+              <option name="eap" value="true" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1509716934781" />
+              <option name="buildTimestamp" value="1509448511886" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
         <entry key="$USER_HOME$/code/fin-core-beta">
           <value>
             <RecentProjectMetaInfo>
@@ -21,12 +34,13 @@
               <option name="productionCode" value="IC" />
               <option name="eap" value="true" />
               <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
-              <option name="projectOpenTimestamp" value="1509666387299" />
+              <option name="projectOpenTimestamp" value="1509666473023" />
               <option name="buildTimestamp" value="1509448544759" />
             </RecentProjectMetaInfo>
           </value>
         </entry>
       </map>
     </option>
+    <option name="lastProjectLocation" value="$USER_HOME$/code" />
   </component>
 </application>

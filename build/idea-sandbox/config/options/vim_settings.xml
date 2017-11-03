@@ -1,0 +1,55 @@
+<application>
+  <component name="VimSettings">
+    <state version="4" enabled="true" />
+    <globalmarks />
+    <filemarks>
+      <file name="$USER_HOME$/code/debug-challenge-java/src/main/java/MomentRecur.java" timestamp="1509716837525">
+        <mark key="[" line="19" column="42" />
+        <mark key="]" line="28" column="64" />
+        <mark key="." line="28" column="64" />
+        <mark key="^" line="28" column="64" />
+      </file>
+    </filemarks>
+    <jumps />
+    <registers>
+      <register name="0" type="2">
+        <text encoding="base64">ICAgIHRoaXMuZm9vID0gMTsK</text>
+      </register>
+      <register name="1" type="2">
+        <text encoding="base64">ICAgICAgaWYgKGN1cnJlbnREYXRlLmNvbXBhcmVUbyhkYXRlKSA9PSAwKSB7Cg==</text>
+      </register>
+      <register name="&quot;" type="2">
+        <text encoding="base64">ICAgICAgaWYgKGN1cnJlbnREYXRlLmNvbXBhcmVUbyhkYXRlKSA9PSAwKSB7Cg==</text>
+      </register>
+      <register name="2" type="2">
+        <text encoding="base64">ICAgIHRoaXMuCg==</text>
+      </register>
+      <register name="3" type="2">
+        <text encoding="base64">ICAgICAgdGhpcy5jb25zb2xlLmxvZygiZWgiKQo=</text>
+      </register>
+      <register name="4" type="2">
+        <text encoding="base64">ICAgIAo=</text>
+      </register>
+      <register name="5" type="2">
+        <text encoding="base64">ICAgIHRoaXMK</text>
+      </register>
+      <register name="6" type="2">
+        <text encoding="base64">ICAgICAgICBjdXJyZW50RGF0ZSA9IGN1cnJlbnREYXRlLgo=</text>
+      </register>
+      <register name="7" type="2">
+        <text encoding="base64">ICAgICAgICBjdXJyZW50RGF0ZSA9IGN1cnJlbnREYXRlLnBsdXNNb250aHModW5pdCkK</text>
+      </register>
+    </registers>
+    <search>
+      <last-dir>0</last-dir>
+      <show-last>false</show-last>
+    </search>
+    <history>
+      <history-search />
+      <history-cmd />
+      <history-expr />
+      <history-input />
+    </history>
+    <shortcut-conflicts />
+  </component>
+</application>

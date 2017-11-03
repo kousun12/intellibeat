@@ -3,6 +3,7 @@ package com.robc.intellibeat.listeners;
 import com.intellij.notification.Notification;
 import com.intellij.notification.Notifications;
 import com.intellij.notification.NotificationsAdapter;
+import com.intellij.openapi.editor.TextChange;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vcs.CheckinProjectPanel;
 import com.intellij.openapi.vcs.changes.CommitContext;

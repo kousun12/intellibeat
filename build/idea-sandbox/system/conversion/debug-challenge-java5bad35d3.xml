@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conversion>
+  <applied-converters>
+    <converter id="android-module-to-java-module" />
+    <converter id="android-proguard-options" />
+    <converter id="android-sdk-library" />
+    <converter id="groovy-modules-to-facets" />
+    <converter id="groovy-script-run-configurations" />
+    <converter id="junit-to-android-junit-configurations" />
+  </applied-converters>
+  <project-files>
+    <file path="/Users/finshared/code/debug-challenge-java/.idea/codeStyles/codeStyleConfig.xml" timestamp="1509666746000" />
+    <file path="/Users/finshared/code/debug-challenge-java/.idea/compiler.xml" timestamp="1482282078000" />
+    <file path="/Users/finshared/code/debug-challenge-java/.idea/copyright/profiles_settings.xml" timestamp="1482279790000" />
+    <file path="/Users/finshared/code/debug-challenge-java/.idea/gradle.xml" timestamp="1482282053000" />
+    <file path="/Users/finshared/code/debug-challenge-java/.idea/libraries/Gradle__junit_junit_4_12.xml" timestamp="1482282053000" />
+    <file path="/Users/finshared/code/debug-challenge-java/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3.xml" timestamp="1482282053000" />
+    <file path="/Users/finshared/code/debug-challenge-java/.idea/misc.xml" timestamp="1509590905000" />
+    <file path="/Users/finshared/code/debug-challenge-java/.idea/modules.xml" timestamp="1482282078000" />
+    <file path="/Users/finshared/code/debug-challenge-java/.idea/modules/debug-challenge.iml" timestamp="1509690209000" />
+    <file path="/Users/finshared/code/debug-challenge-java/.idea/modules/debug-challenge_main.iml" timestamp="1509690209000" />
+    <file path="/Users/finshared/code/debug-challenge-java/.idea/modules/debug-challenge_test.iml" timestamp="1509690209000" />
+    <file path="/Users/finshared/code/debug-challenge-java/.idea/vcs.xml" timestamp="1482444244000" />
+    <file path="/Users/finshared/code/debug-challenge-java/.idea/workspace.xml" timestamp="1509716861000" />
+  </project-files>
+</conversion>
+
