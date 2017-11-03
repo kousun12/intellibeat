@@ -29,3 +29,9 @@ buildscript {
 }
 
 apply plugin: 'org.jetbrains.intellij'
+
+intellij {
+    pluginName 'intellibeat'
+}
+group 'com.robc'
+version '1.0'
