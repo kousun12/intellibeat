@@ -13,22 +13,9 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 
 public class Sounds {
-  public final Sound oneUp;
-  public final Sound oneDown;
-  public final Sound coin;
-  public final Sound bowserfalls;
-  public final Sound breakblock;
-  public final Sound fireball;
-  public final Sound fireworks;
-  public final Sound gameover;
-  public final Sound jumpSmall;
-  public final Sound jumpSuper;
-  public final Sound kick;
-  public final Sound stomp;
-  public final Sound powerupAppears;
-  public final Sound powerup;
   public final ArrayList<Sequence> sequences;
   public final ArrayList<Sequence> performances;
+  public final ArrayList<Sequence> drums;
 
   public final Sound marioSong;
   public final Sound zeldaSong;
@@ -58,9 +45,10 @@ public class Sounds {
   private Sounds(Function<Config, Sound> load) {
     sequences = new ArrayList<>();
     performances = new ArrayList<>();
+    drums = new ArrayList<>();
     try {
-      PathMatcher matcher = FileSystems.getDefault().getPathMatcher("glob:/tmp/outputs/*.mid");
-      Files.walkFileTree(Paths.get("/tmp/outputs/"), new SimpleFileVisitor<Path>() {
+      PathMatcher matcher = FileSystems.getDefault().getPathMatcher("glob:/Users/finshared/rnn/outputs/*.mid");
+      Files.walkFileTree(Paths.get("/Users/finshared/rnn/outputs/"), new SimpleFileVisitor<Path>() {
         @Override
         public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
           if (matcher.matches(file)) {
@@ -84,8 +72,8 @@ public class Sounds {
     }
     try {
 
-      PathMatcher matcherPerf = FileSystems.getDefault().getPathMatcher("glob:/tmp/performances/*.mid");
-      Files.walkFileTree(Paths.get("/tmp/performances/"), new SimpleFileVisitor<Path>() {
+      PathMatcher matcherPerf = FileSystems.getDefault().getPathMatcher("glob:/Users/finshared/rnn/performances/*.mid");
+      Files.walkFileTree(Paths.get("/Users/finshared/rnn/performances/"), new SimpleFileVisitor<Path>() {
         @Override
         public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
           if (matcherPerf.matches(file)) {
@@ -107,20 +95,31 @@ public class Sounds {
     } catch (Exception e) {
 
     }
-    oneUp = load.fun(new Config("/smb_1-up.au"));
-    oneDown = load.fun(new Config("/smb_pipe.au"));
-    coin = load.fun(new Config("/smb_coin.au"));
-    bowserfalls = load.fun(new Config("/smb_bowserfalls.au"));
-    breakblock = load.fun(new Config("/smb_breakblock.au"));
-    fireball = load.fun(new Config("/smb_fireball.au"));
-    fireworks = load.fun(new Config("/smb_fireworks.au"));
-    gameover = load.fun(new Config("/smb_gameover.au", true));
-    jumpSmall = load.fun(new Config("/smb_jump-small.au"));
-    jumpSuper = load.fun(new Config("/smb_jump-super.au"));
-    kick = load.fun(new Config("/smb_kick.au"));
-    stomp = load.fun(new Config("/smb_stomp.au"));
-    powerup = load.fun(new Config("/smb_powerup.au"));
-    powerupAppears = load.fun(new Config("/smb_powerup_appears.au"));
+    try {
+
+      PathMatcher matcherPerf = FileSystems.getDefault().getPathMatcher("glob:/Users/finshared/rnn/drums/*.mid");
+      Files.walkFileTree(Paths.get("/Users/finshared/rnn/drums/"), new SimpleFileVisitor<Path>() {
+        @Override
+        public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+          if (matcherPerf.matches(file)) {
+            File f = new File(file.toAbsolutePath().toString());
+            try {
+              drums.add(MidiSystem.getSequence(f));
+            } catch (Exception e) {
+              System.out.println(e);
+            }
+          }
+          return FileVisitResult.CONTINUE;
+        }
+
+        @Override
+        public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
+          return FileVisitResult.CONTINUE;
+        }
+      });
+    } catch (Exception e) {
+
+    }
     marioSong = load.fun(new Config("/mario_08.au", true));
     zeldaSong = load.fun(new Config("/zelda_04.au", true));
   }

@@ -1,16 +1,24 @@
 package com.robc.intellibeat;
 
+import com.intellij.codeInsight.editorActions.TypedHandlerDelegate;
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationType;
 import com.intellij.notification.Notifications;
 import com.intellij.openapi.application.ApplicationAdapter;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ApplicationComponent;
+import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.fileEditor.FileEditorManager;
+import com.intellij.openapi.fileEditor.FileEditorManagerEvent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.project.ProjectManagerAdapter;
 import com.intellij.openapi.project.ProjectManagerListener;
+import com.intellij.openapi.fileEditor.FileEditorManagerListener;
+
 import com.intellij.openapi.util.SystemInfo;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.psi.PsiFile;
 import com.robc.intellibeat.listeners.*;
 import com.robc.intellibeat.sounds.SilentSound;
 import com.robc.intellibeat.sounds.Sounds;
@@ -18,6 +26,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import static com.intellij.openapi.util.text.StringUtil.isEmptyOrSpaces;
 
@@ -82,7 +91,10 @@ public class IntelliJAppComponent implements ApplicationComponent {
     allActions.stop();
   }
 
+  boolean drums = false;
+
   private void initProjectListeners() {
+
     projectManagerListener = new ProjectManagerAdapter() {
       @Override
       public void projectOpened(Project project) {
@@ -109,6 +121,35 @@ public class IntelliJAppComponent implements ApplicationComponent {
           unitTests.start();
           unitTestsByProject.put(project, unitTests);
         }
+        FileEditorManager editor = FileEditorManager.getInstance(project);
+        editor.addFileEditorManagerListener(new FileEditorManagerListener() {
+          public void fileOpened(@NotNull FileEditorManager source, @NotNull VirtualFile file) {
+          }
+
+          public void fileClosed(@NotNull FileEditorManager source, @NotNull VirtualFile file) {
+          }
+
+          public void selectionChanged(@NotNull FileEditorManagerEvent event) {
+            System.out.println("change " + event.getNewFile());
+
+            Pattern p = Pattern.compile("\\.java");
+            System.out.println(p.matcher(event.getNewFile().getName()).find());
+            boolean matches = p.matcher(event.getNewFile().getName()).find();
+
+            if (matches && !drums) {
+              soundPlayer.playDrums(true);
+              System.out.println("turning on");
+            } else {
+              if (drums) {
+                soundPlayer.playDrums(false);
+                System.out.println("turning off");
+              }
+            }
+            drums = matches;
+          }
+
+        });
+
       }
 
       @Override

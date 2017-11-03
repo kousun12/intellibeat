@@ -20,7 +20,7 @@ public class SilentSound extends Sound {
 		return this;
 	}
 
-	@Override public Sound playInBackground() {
+	@Override public Sound playInBackground(boolean drums) {
 		listener.playing(soundName);
 		return this;
 	}

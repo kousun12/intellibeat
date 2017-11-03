@@ -47,6 +47,7 @@
   <extensions defaultExtensionNs="com.intellij">
     <applicationService serviceInterface="com.robc.intellibeat.Settings" serviceImplementation="com.robc.intellibeat.Settings"/>
     <checkinHandlerFactory implementation="com.robc.intellibeat.listeners.VcsActions$MyCheckinHandlerFactory"/>
+    <typedHandler implementation="com.robc.intellibeat.listeners.TypeHandler"/>
   </extensions>
 
 </idea-plugin>

@@ -44,8 +44,8 @@ public class Sound {
 		return this;
 	}
 
-	public Sound playInBackground() {
-	  playBackgroundMus();
+	public Sound playInBackground(boolean drums) {
+	  playBackgroundMus(!drums);
 		return this;
 	}
 
@@ -56,11 +56,12 @@ public class Sound {
 		return this;
 	}
 
-	private void playBackgroundMus() {
+	MidiPlayer player = new MidiPlayer();
+	private void playBackgroundMus(boolean drums) {
 		Settings settings = Settings.getInstance();
 		Sounds s = Sounds.create(settings.actionSoundsEnabled, settings.backgroundMusicEnabled);
 		try {
-			(new MidiPlayer()).play(s.performances, false);
+			(player).play(drums ? s.drums : s.performances, false);
 		} catch (Exception e) {
 			System.out.println(e);
 		}

@@ -73,8 +73,8 @@ public class MidiPlayer implements MetaEventListener {
    * immediately. The sequence is not played if it is invalid.
    */
   public void play(ArrayList<Sequence> sequences, boolean loop) {
-    MidiDevice device;
-    MidiDevice.Info[] infos = MidiSystem.getMidiDeviceInfo();
+//    MidiDevice device;
+//    MidiDevice.Info[] infos = MidiSystem.getMidiDeviceInfo();
 //    for (int i = 0; i < infos.length; i++) {
 //      try {
 //        if (receiver == null) {
@@ -95,6 +95,9 @@ public class MidiPlayer implements MetaEventListener {
 //        System.out.println(e);
 //      }
 //    }
+    this.sequences = sequences;
+    Double d = (Math.random() * sequences.size());
+    sequenceIndex = d.intValue();
     if (sequencer != null && sequences.size() > 0 && sequencer.isOpen()) {
       try {
         sequencer.setSequence(sequences.get(sequenceIndex));
@@ -121,9 +124,7 @@ public class MidiPlayer implements MetaEventListener {
         sequencer.start();
       } else if (!loop) {
         sequenceIndex = (sequenceIndex + 1) % sequences.size();
-        System.out.println("seq i " + sequenceIndex);
         try {
-          System.out.println("seq");
           sequencer.setSequence(sequences.get(sequenceIndex));
           sequencer.setTickPosition(0);
           sequencer.start();
